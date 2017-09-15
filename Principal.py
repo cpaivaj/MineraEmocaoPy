@@ -54,4 +54,9 @@ classificador = nltk.NaiveBayesClassifier.train(baseCompletaTreinamento)
 # imprime as labels (emocoes) da base usada
 #print(classificador.labels())
 # imprime os dados mais informativos, com maior probabilidade de ser certa emocao
-print(classificador.show_most_informative_features(20))
+#print(classificador.show_most_informative_features(20))
+
+# mostra a precisao do algoritmo (em porcentagem) usando o accuracy do nltk, com base na tabela de probabilidades criada com naivebayes
+# eh necessario prestar atencao a porcentagem de precisao, ideal eh acima de 70%
+#print(nltk.classify.accuracy(classificador, basecompletatreinamento)) # 93% pq usa a mesma base para a comparacao
+print(nltk.classify.accuracy(classificador, baseCompletaTeste)) # 32% pq usa bases diferentes (EH A FORMA CERTA DE VERIFICAR)
