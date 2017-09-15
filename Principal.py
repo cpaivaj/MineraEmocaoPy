@@ -85,27 +85,31 @@ matriz = ConfusionMatrix(esperado, previsto)
 # imprime a matriz de confusao
 #print(matriz)
 
-frasePersonalizada = 'eu adoro programar'
-testeStemming = []
-stemmer = nltk.stem.RSLPStemmer()
-# criando stemmer da frase personalizada (frasePersonalizada)
-# extrair radicais
-for (palavrasTreinamento) in frasePersonalizada.split():
-    comStem = [p for p in palavrasTreinamento.split()]
-    testeStemming.append(str(stemmer.stem(comStem[0])))
+frasePersonalizada = input("Digite alguma frase: ")
 
-print(testeStemming)
+while(frasePersonalizada != "sair"):
+    testeStemming = []
+    stemmer = nltk.stem.RSLPStemmer()
+    # criando stemmer da frase personalizada (frasePersonalizada)
+    # extrair radicais
+    for (palavrasTreinamento) in frasePersonalizada.split():
+        comStem = [p for p in palavrasTreinamento.split()]
+        testeStemming.append(str(stemmer.stem(comStem[0])))
 
-# lista de trues e falses onde a frase personalizada se encaixa
-novo = extratorPalavras(testeStemming)
-#print(novo)
+    #print(testeStemming)
 
-# classicaficacao da frase
-print('Frase: ' + frasePersonalizada)
-print('Essa frase eh de: ' + classificador.classify(novo))
-print()
+    # lista de trues e falses onde a frase personalizada se encaixa
+    novo = extratorPalavras(testeStemming)
+    #print(novo)
 
-# mostra a probabilidade, porcentagem de cada emocao
-distribuicao = classificador.prob_classify(novo)
-for classe in distribuicao.samples():
-    print("%s: %f" % (classe, distribuicao.prob(classe)))
+    # classicaficacao da frase
+    print('Frase: ' + frasePersonalizada)
+    print('Essa frase eh de: ' + classificador.classify(novo))
+    print()
+
+    # mostra a probabilidade, porcentagem de cada emocao
+    distribuicao = classificador.prob_classify(novo)
+    #for classe in distribuicao.samples():
+        #print("%s: %f" % (classe, distribuicao.prob(classe)))
+
+    frasePersonalizada = input("Digite alguma frase: ")
