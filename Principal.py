@@ -95,3 +95,8 @@ for (palavrasTreinamento) in frasePersonalizada.split():
     testeStemming.append(str(stemmer.stem(comStem[0])))
 
 print(testeStemming)
+
+# lista de trues e falses onde a frase personalizada se encaixa
+novo = extratorPalavras(testeStemming)
+print(novo)
+
