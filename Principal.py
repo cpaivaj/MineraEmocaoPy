@@ -98,9 +98,14 @@ print(testeStemming)
 
 # lista de trues e falses onde a frase personalizada se encaixa
 novo = extratorPalavras(testeStemming)
-print(novo)
+#print(novo)
 
 # classicaficacao da frase
 print('Frase: ' + frasePersonalizada)
 print('Essa frase eh de: ' + classificador.classify(novo))
+print()
 
+# mostra a probabilidade, porcentagem de cada emocao
+distribuicao = classificador.prob_classify(novo)
+for classe in distribuicao.samples():
+    print("%s: %f" % (classe, distribuicao.prob(classe)))
