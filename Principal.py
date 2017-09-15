@@ -100,3 +100,7 @@ print(testeStemming)
 novo = extratorPalavras(testeStemming)
 print(novo)
 
+# classicaficacao da frase
+print('Frase: ' + frasePersonalizada)
+print('Essa frase eh de: ' + classificador.classify(novo))
+
