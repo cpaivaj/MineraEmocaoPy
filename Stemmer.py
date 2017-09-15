@@ -28,3 +28,9 @@ def buscaPalavras(frases):
 def buscaFrequencia(palavras):
     palavras = nltk.FreqDist(palavras)
     return palavras
+
+# retorna a lista das palavras unicas
+def buscaPalavrasUnicas(frequencia):
+    # pega so os valores
+    freq = frequencia.keys()
+    return freq

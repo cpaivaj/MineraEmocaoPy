@@ -25,10 +25,11 @@ palavrasTeste = Stemmer.buscaPalavras(frasesComStemmingTeste)
 frequenciaTreinamento = Stemmer.buscaFrequencia(palavrasTreinamento)
 frequenciaTeste = Stemmer.buscaFrequencia(palavrasTeste)
 
-print(frequenciaTreinamento)
-print(frequenciaTeste)
+# palavras que nao se repetem
+palavrasUnicasTreinamento = Stemmer.buscaPalavrasUnicas(frequenciaTreinamento)
+palavrasUnicasTeste = Stemmer.buscaPalavrasUnicas(frequenciaTeste)
 
-
-
+print(palavrasUnicasTreinamento)
+print(palavrasUnicasTeste)
 
 
