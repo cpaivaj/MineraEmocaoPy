@@ -29,7 +29,9 @@ frequenciaTeste = Stemmer.buscaFrequencia(palavrasTeste)
 palavrasUnicasTreinamento = Stemmer.buscaPalavrasUnicas(frequenciaTreinamento)
 palavrasUnicasTeste = Stemmer.buscaPalavrasUnicas(frequenciaTeste)
 
-print(palavrasUnicasTreinamento)
-print(palavrasUnicasTeste)
+# passa como parametro radicais de palavras
+# mostra se existe a palavra na frase ou nao, com tru ou false
+# extrai as que estao sendo passadas por paramento
+caracteristicasFrase = Stemmer.extratorPalavras(['am', 'nov', 'dia'], palavrasUnicasTreinamento)
 
-
+print(caracteristicasFrase)
