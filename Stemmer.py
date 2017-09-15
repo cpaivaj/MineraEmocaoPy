@@ -34,12 +34,3 @@ def buscaPalavrasUnicas(frequencia):
     # pega so os valores
     freq = frequencia.keys()
     return freq
-
-# extracao das palavras de uma frase que foram passada por parametro
-def extratorPalavras(documento, palavrasUnicasTreinamento):
-    doc = set(documento)
-    caracteristicas = {}
-    for palavras in palavrasUnicasTreinamento:
-        # para percorrer as palavras de uma frase
-        caracteristicas['%s' % palavras] = (palavras in doc)
-    return caracteristicas
