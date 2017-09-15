@@ -61,7 +61,7 @@ classificador = nltk.NaiveBayesClassifier.train(baseCompletaTreinamento)
 # mostra a precisao do algoritmo (em porcentagem) usando o accuracy do nltk, com base na tabela de probabilidades criada com naivebayes
 # eh necessario prestar atencao a porcentagem de precisao, ideal eh acima de 70%
 #print(nltk.classify.accuracy(classificador, basecompletatreinamento)) # 93% pq usa a mesma base para a comparacao
-print(nltk.classify.accuracy(classificador, baseCompletaTeste)) # 32% pq usa bases diferentes (EH A FORMA CERTA DE VERIFICAR)
+#print(nltk.classify.accuracy(classificador, baseCompletaTeste)) # 32% pq usa bases diferentes (EH A FORMA CERTA DE VERIFICAR)
 
 # exibe onde o classificador errou
 # o primeiro parametro, mostra qual eh a classificacao correta
@@ -83,4 +83,15 @@ for (frase, classe) in baseCompletaTeste:
 matriz = ConfusionMatrix(esperado, previsto)
 
 # imprime a matriz de confusao
-print(matriz)
+#print(matriz)
+
+frasePersonalizada = 'eu adoro programar'
+testeStemming = []
+stemmer = nltk.stem.RSLPStemmer()
+# criando stemmer da frase personalizada (frasePersonalizada)
+# extrair radicais
+for (palavrasTreinamento) in frasePersonalizada.split():
+    comStem = [p for p in palavrasTreinamento.split()]
+    testeStemming.append(str(stemmer.stem(comStem[0])))
+
+print(testeStemming)
