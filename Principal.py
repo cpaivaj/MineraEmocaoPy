@@ -49,5 +49,9 @@ caracteristicasFrase = extratorPalavras(['am', 'nov', 'dia'])
 baseCompletaTreinamento = nltk.classify.apply_features(extratorPalavras, frasesComStemmingTreinamento)
 baseCompletaTeste = nltk.classify.apply_features(extratorPalavras, frasesComStemmingTeste)
 
-print(baseCompletaTreinamento)
-print(baseCompletaTeste)
+# constroi a tabela de probabilidade
+classificador = nltk.NaiveBayesClassifier.train(baseCompletaTreinamento)
+# imprime as labels (emocoes) da base usada
+#print(classificador.labels())
+# imprime os dados mais informativos, com maior probabilidade de ser certa emocao
+print(classificador.show_most_informative_features(20))
