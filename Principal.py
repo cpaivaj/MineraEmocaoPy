@@ -17,5 +17,9 @@ stopWords = BasesFrases.Stop_words.stopWordsNLTK
 frasesComStemmingTreinamento = Stemmer.aplicaStemmer(baseTreinamento)
 frasesComStemmingTeste = Stemmer.aplicaStemmer(baseTeste)
 
-print(frasesComStemmingTreinamento)
-print(frasesComStemmingTeste)
+# busca cada uma das palavras, apos quebrar todas em radicais
+palavrasTreinamento = Stemmer.buscaPalavras(frasesComStemmingTreinamento)
+palavrasTeste = Stemmer.buscaPalavras(frasesComStemmingTeste)
+
+print(palavrasTreinamento)
+print(palavrasTeste)

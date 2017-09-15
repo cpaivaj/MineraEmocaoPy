@@ -15,3 +15,11 @@ def aplicaStemmer(texto):
         # adiciona a lista de frasesStemming
         frasesStemming.append((comStemming, emocao))
     return frasesStemming
+
+# funcao para pegar todas as palavras apos o stemming, sem a emocao
+def buscaPalavras(frases):
+    todasPalavras = []
+    for (palavras, emocao) in frases:
+        # pega somente as palavras
+        todasPalavras.extend(palavras)
+    return  todasPalavras
