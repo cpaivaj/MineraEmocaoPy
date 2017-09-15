@@ -21,5 +21,14 @@ frasesComStemmingTeste = Stemmer.aplicaStemmer(baseTeste)
 palavrasTreinamento = Stemmer.buscaPalavras(frasesComStemmingTreinamento)
 palavrasTeste = Stemmer.buscaPalavras(frasesComStemmingTeste)
 
-print(palavrasTreinamento)
-print(palavrasTeste)
+# quantidade de vezes que uma palavra se repete
+frequenciaTreinamento = Stemmer.buscaFrequencia(palavrasTreinamento)
+frequenciaTeste = Stemmer.buscaFrequencia(palavrasTeste)
+
+print(frequenciaTreinamento)
+print(frequenciaTeste)
+
+
+
+
+

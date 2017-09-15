@@ -23,3 +23,8 @@ def buscaPalavras(frases):
         # pega somente as palavras
         todasPalavras.extend(palavras)
     return  todasPalavras
+
+# busca quantas vezes uma palavra de repete
+def buscaFrequencia(palavras):
+    palavras = nltk.FreqDist(palavras)
+    return palavras
