@@ -4,6 +4,7 @@ import BasesFrases.Base_treinamento
 import BasesFrases.Base_teste
 import BasesFrases.Stop_words
 import Stemmer
+import Erros_classificador
 
 # baixar atualizacoes
 #nltk.download()
@@ -50,6 +51,7 @@ baseCompletaTreinamento = nltk.classify.apply_features(extratorPalavras, frasesC
 baseCompletaTeste = nltk.classify.apply_features(extratorPalavras, frasesComStemmingTeste)
 
 # constroi a tabela de probabilidade
+# o classificador verifica quais palavras estao relacionada a quais emocoes, e assim eh possivel saber se o algoritmo esta acertando ou nao
 classificador = nltk.NaiveBayesClassifier.train(baseCompletaTreinamento)
 # imprime as labels (emocoes) da base usada
 #print(classificador.labels())
@@ -60,3 +62,25 @@ classificador = nltk.NaiveBayesClassifier.train(baseCompletaTreinamento)
 # eh necessario prestar atencao a porcentagem de precisao, ideal eh acima de 70%
 #print(nltk.classify.accuracy(classificador, basecompletatreinamento)) # 93% pq usa a mesma base para a comparacao
 print(nltk.classify.accuracy(classificador, baseCompletaTeste)) # 32% pq usa bases diferentes (EH A FORMA CERTA DE VERIFICAR)
+
+# exibe onde o classificador errou
+# o primeiro parametro, mostra qual eh a classificacao correta
+# o segunto mostra qual o programa disse que eh
+# o terceiro mostra as palavras que estao sendo confundidas com frequencia
+#Erros_classificador.erros_classificador(classificador, baseCompletaTeste)
+
+# o numero que estiver dentro de <> sao os que o programa acertou, os demais numeros foram erros e qual a categoria escolhida
+esperado = []
+previsto = []
+
+# montagem das emocoes esperadas e previstas da base completa
+for (frase, classe) in baseCompletaTeste:
+        resultado = classificador.classify(frase)
+        previsto.append(resultado)
+        esperado.append(classe)
+
+# a matriz faz a juncao das duas variaveis, esperado e previsto
+matriz = ConfusionMatrix(esperado, previsto)
+
+# imprime a matriz de confusao
+print(matriz)
